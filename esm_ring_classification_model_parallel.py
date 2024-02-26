@@ -58,14 +58,18 @@ model = AutoModelForSequenceClassification.from_pretrained(model_checkpoint, num
 print(model)
 # Assuming you have 8 GPUs available
 device_map = {
-    0: ["embeddings", "encoder.layer.0", "encoder.layer.1", "encoder.layer.2", "encoder.layer.3"],
-    1: ["encoder.layer.4", "encoder.layer.5", "encoder.layer.6", "encoder.layer.7"],
-    2: ["encoder.layer.8", "encoder.layer.9", "encoder.layer.10", "encoder.layer.11"],
-    3: ["encoder.layer.12", "encoder.layer.13", "encoder.layer.14", "encoder.layer.15"],
-    4: ["encoder.layer.16", "encoder.layer.17", "encoder.layer.18", "encoder.layer.19"],
-    5: ["encoder.layer.20", "encoder.layer.21", "encoder.layer.22", "encoder.layer.23"],
-    6: ["encoder.layer.24", "encoder.layer.25", "encoder.layer.26", "encoder.layer.27"],
-    7: ["encoder.layer.28", "encoder.layer.29", "encoder.layer.30", "encoder.layer.31", "encoder.layer.32", "encoder.layer.33", "encoder.layer.34", "encoder.layer.35", "classifier"],
+    0: ["esm.embeddings", "esm.encoder.layer.0", "esm.encoder.layer.1", "esm.encoder.layer.2", "esm.encoder.layer.3"],
+    1: ["esm.encoder.layer.4", "esm.encoder.layer.5", "esm.encoder.layer.6", "esm.encoder.layer.7"],
+    2: ["esm.encoder.layer.8", "esm.encoder.layer.9"],
+    3: ["esm.encoder.layer.10", "esm.encoder.layer.11"],
+    4: ["esm.encoder.layer.12", "esm.encoder.layer.13"],
+    5: ["esm.encoder.layer.14", "esm.encoder.layer.15"],
+    6: ["esm.encoder.layer.16", "esm.encoder.layer.17", "esm.encoder.layer.18", "esm.encoder.layer.19"],
+    7: ["esm.encoder.layer.20", "esm.encoder.layer.21", "esm.encoder.layer.22", "esm.encoder.layer.23", 
+        "esm.encoder.layer.24", "esm.encoder.layer.25", "esm.encoder.layer.26", "esm.encoder.layer.27",
+        "esm.encoder.layer.28", "esm.encoder.layer.29", "esm.encoder.layer.30", "esm.encoder.layer.31",
+        "esm.encoder.layer.32", "esm.encoder.layer.33", "esm.encoder.layer.34", "esm.encoder.layer.35",
+        "esm.contact_head", "classifier"]
 }
 
 # Manually move parts of the model to different GPUs
